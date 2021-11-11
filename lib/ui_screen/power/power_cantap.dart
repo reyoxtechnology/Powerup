@@ -4,17 +4,18 @@ import 'package:flutter/material.dart';
 class PowerCantap extends StatelessWidget {
   final Widget child;
   final dynamic onTap;
-  const PowerCantap({
-    Key? key,
-    required this.child,
-    required this.onTap
-  }) : super(key: key);
+  const PowerCantap({Key? key, required this.child, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       child: child,
-      onTap: ()=>this.onTap() ,
+      onTap: () {
+        // ignore: avoid_print
+        print('cantap');
+        onTap();
+      },
     );
   }
 }

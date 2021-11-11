@@ -14,7 +14,7 @@ class PowerText extends StatelessWidget {
   final TextAlign? textAlign;
 
 
-   PowerText({
+ const  PowerText({
      Key? key,
      required this.text,
      this.fontSize,
@@ -37,7 +37,7 @@ class PowerText extends StatelessWidget {
         fontFamily: fontFamily?? 'Poppins',
         fontWeight: fontWeight??FontWeight.w600,
         fontStyle: FontStyle.normal,
-        color: color?? Color(0xFF263238),
+        color: color??  const Color(0xFF263238),
         height: height,
 
       ),

@@ -9,17 +9,15 @@ import 'package:powerup/ui_screen/swipeup_widget.dart';
 import '../logins/login_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
-
   final String? bgImage;
 
-  const WelcomeScreen({Key? key,this.bgImage}) : super(key: key);
+  const WelcomeScreen({Key? key, this.bgImage}) : super(key: key);
 
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-
   String? bgImage;
   bool isFirstScreen = true;
 
@@ -37,52 +35,47 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         elevation: 0.0,
         backgroundColor: Colors.transparent,
       ),
-      body:
-      GestureDetector(
-         onVerticalDragStart:(DragStartDetails details){
-           if(isFirstScreen)
-           setState(() {
-             isFirstScreen = false;
-           });
-         } ,
+      body: GestureDetector(
+        onVerticalDragStart: (DragStartDetails details) {
+          if (isFirstScreen) {
+            setState(() {
+              isFirstScreen = false;
+            });
+          }
+        },
         child: Stack(
           children: [
             Positioned(
-                child:  Container(
-              child:
-              Image.asset(
-                isFirstScreen? 'power_imgs/welcome_bg_img.png':'power_imgs/bulb_bg.png',
+                child: Container(
+              child: Image.asset(
+                isFirstScreen
+                    ? 'power_imgs/welcome_bg_img.png'
+                    : 'power_imgs/bulb_bg.png',
                 fit: BoxFit.fill,
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
               ),
-            )
-            ), //Image.asset('power_imgs/welcome_bg_img.png')
+            )), //Image.asset('power_imgs/welcome_bg_img.png')
 
             Positioned(
-               top: 29.h,
+                top: 29.h,
                 left: 28.w,
                 right: 28.w,
-                child:InkWell(
-                  onTap: (){
-                    if(!isFirstScreen)
+                child: InkWell(
+                  onTap: () {
+                    if (!isFirstScreen) {
                       setState(() {
                         isFirstScreen = true;
                       });
+                    }
                   },
-                child:SizedBox(
-                    height:108.h ,
-                    child:Image.asset(
-                      'power_imgs/powerup_translogo.png',
-                    )
-                ) ,
-                )
-            ),
-            Positioned(
-               left:-20.w,
-               top: 621.h,
-                child: Bottom()
-            ),
+                  child: SizedBox(
+                      height: 108.h,
+                      child: Image.asset(
+                        'power_imgs/powerup_translogo.png',
+                      )),
+                )),
+            Positioned(left: -20.w, top: 621.h, child: Bottom()),
             Positioned(
               top: 743.h,
               left: 106.w,
@@ -90,15 +83,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
             Positioned(
               top: 556.h,
-              left:115.w,
-              child: SwipeUpWidget(),
+              left: 115.w,
+              child: const SwipeUpWidget(),
             )
           ],
         ),
       ),
     );
   }
-  
+
   Widget Bottom() {
     return ClipOval(
       child: Container(
@@ -109,17 +102,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 
-  Widget Txt(){
+  Widget Txt() {
     return Container(
       child: PowerTxtBtn(
-         bgColor: Colors.transparent,
-        txtColor: Color(0xFF263238),
-        onTap: (){
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (_)=>LoginScreen())
-          );
+        bgColor: Colors.transparent,
+        txtColor: const Color(0xFF263238),
+        onTap: () {
+          // ignore: avoid_print
+          print('push to login');
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => const LoginScreen()));
         },
-          text: 'Swipe up to login',
+        text: 'Swipe up to login',
       ),
     );
   }

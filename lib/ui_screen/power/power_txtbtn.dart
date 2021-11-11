@@ -13,41 +13,41 @@ class PowerTxtBtn extends StatelessWidget {
   final String? fontFamily;
   final double? fontSize;
 
-   PowerTxtBtn({
-     Key? key,
-     this.text,
-     this.onTap,
-     this.bgColor,
-     this.txtColor,
-     this.textAlign,
-     this.fontWeight,
-     this.fontFamily,
-     this.fontSize
-   }) : super(key: key);
+  const PowerTxtBtn(
+      {Key? key,
+      this.text,
+      this.onTap,
+      this.bgColor,
+      this.txtColor,
+      this.textAlign,
+      this.fontWeight,
+      this.fontFamily,
+      this.fontSize})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
         style: ButtonStyle(
-            shape: MaterialStateProperty.all<OutlinedBorder>(
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r))
-                ),
-            backgroundColor: MaterialStateProperty.resolveWith((states) => bgColor??Color(0xFFE19F21)),
+          shape: MaterialStateProperty.all<OutlinedBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.r))),
+          backgroundColor: MaterialStateProperty.resolveWith(
+              (states) => bgColor ?? Color(0xFFE19F21)),
         ),
-        onPressed: (){
-          this.onTap();
+        onPressed: () {
+          print('txt btn');
+          onTap();
         },
         child: Padding(
-          padding: EdgeInsets.only(top: 10.h,bottom: 10.h),
-          child:PowerText(
-            text: text??'submit',
-            color: txtColor??Colors.white,
-            textAlign: textAlign,
-            fontWeight:fontWeight ,
-            fontFamily:fontFamily ,
-            fontSize: fontSize,
-          )
-        )
-    );
+            padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
+            child: PowerText(
+              text: text ?? 'submit',
+              color: txtColor ?? Colors.white,
+              textAlign: textAlign,
+              fontWeight: fontWeight,
+              fontFamily: fontFamily,
+              fontSize: fontSize,
+            )));
   }
 }

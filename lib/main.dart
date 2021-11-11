@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:powerup/ui_screen/forgotpassword/forgot_pwd.dart';
 import 'package:powerup/ui_screen/welcome/welcome_screen.dart';
 
 void main() {
@@ -13,10 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(375, 812),
-      builder: (){
-        return MaterialApp(
+      builder: () {
+        return const MaterialApp(
           debugShowCheckedModeBanner: false,
-          home:  WelcomeScreen(),
+          home: WelcomeScreen(),
         );
       },
     );
