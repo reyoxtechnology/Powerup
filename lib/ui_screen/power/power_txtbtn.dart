@@ -12,6 +12,9 @@ class PowerTxtBtn extends StatelessWidget {
   final FontWeight? fontWeight;
   final String? fontFamily;
   final double? fontSize;
+  final double? borderRadius;
+  final double? elevation;
+  final TextDecoration? textDecoration;
 
   const PowerTxtBtn(
       {Key? key,
@@ -22,6 +25,9 @@ class PowerTxtBtn extends StatelessWidget {
       this.textAlign,
       this.fontWeight,
       this.fontFamily,
+      this.elevation,
+      this.textDecoration,
+      this.borderRadius,
       this.fontSize})
       : super(key: key);
 
@@ -29,14 +35,14 @@ class PowerTxtBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         style: ButtonStyle(
+          elevation: MaterialStateProperty.all<double>(elevation ?? 0.0),
           shape: MaterialStateProperty.all<OutlinedBorder>(
               RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.r))),
+                  borderRadius: BorderRadius.circular(borderRadius ?? 15.r))),
           backgroundColor: MaterialStateProperty.resolveWith(
               (states) => bgColor ?? Color(0xFFE19F21)),
         ),
         onPressed: () {
-          print('txt btn');
           onTap();
         },
         child: Padding(
@@ -48,6 +54,7 @@ class PowerTxtBtn extends StatelessWidget {
               fontWeight: fontWeight,
               fontFamily: fontFamily,
               fontSize: fontSize,
+              textDecoration: textDecoration
             )));
   }
 }

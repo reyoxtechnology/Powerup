@@ -3,13 +3,14 @@ import 'package:flutter/cupertino.dart';
 
 class BaseUi extends StatelessWidget {
   final Widget child;
-
-  const BaseUi({Key? key, required this.child}) : super(key: key);
+  final Color? bgColor;
+  const BaseUi({Key? key, required this.child,this.bgColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         extendBodyBehindAppBar: true,
+        backgroundColor: bgColor,
         body: Container(
           child: child,
         ));

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:powerup/ui_screen/baseui.dart';
+import 'package:powerup/ui_screen/forgotpassword/entercode_screen.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:powerup/ui_screen/power/power_textfield.dart';
 import 'package:powerup/ui_screen/power/power_txtbtn.dart';
+import 'package:powerup/utils/general_functions.dart';
 
 class ForgotPwdScreen extends StatefulWidget {
   const ForgotPwdScreen({Key? key}) : super(key: key);
@@ -25,7 +27,7 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
         setState(() {
           isKeyboardUp = true;
         });
-      }else{
+      } else {
         setState(() {
           isKeyboardUp = false;
         });
@@ -72,7 +74,7 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
                       ),
               ),
               inputDetail(),
-              sendBtn()
+              sendBtn(context)
             ],
           ))
     ]));
@@ -80,7 +82,7 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
 
   Widget header(BuildContext context) {
     return Container(
-        height:isKeyboardUp?121.h: 139.h,
+        height: isKeyboardUp ? 121.h : 139.h,
         width: 414.w,
         decoration: BoxDecoration(
           borderRadius:
@@ -124,34 +126,26 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
               )),
           PowerTextField(
             focusNode: focusNode,
+            onChange: (value){
+              
+            },
           ),
         ],
       ),
     );
   }
 
-  Widget sendBtn() {
+  Widget sendBtn(BuildContext context) {
     return Container(
       width: 272.w,
-      margin: EdgeInsets.only(top: isKeyboardUp?35.h: 58.h),
-      child: const PowerTxtBtn(
-        bgColor: Color(0xff082F7C),
+      margin: EdgeInsets.only(top: isKeyboardUp ? 35.h : 58.h),
+      child: PowerTxtBtn(
+        bgColor: const Color(0xff082F7C),
         text: 'send',
+        onTap: () => goto(screen:  EnterCodeScreen(), context: context),
       ),
     );
   }
 
-  Widget tempWidget() {
-    return Container(
-      width: 100.75.w,
-      height: 105.87.h,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Image.asset('power_imgs/reload_img.png'),
-          Image.asset('power_imgs/lock.png')
-        ],
-      ),
-    );
-  }
+  
 }

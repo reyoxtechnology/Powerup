@@ -12,8 +12,6 @@ class PowerCantap extends StatelessWidget {
     return InkWell(
       child: child,
       onTap: () {
-        // ignore: avoid_print
-        print('cantap');
         onTap();
       },
     );

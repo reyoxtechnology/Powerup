@@ -12,7 +12,7 @@ class PowerText extends StatelessWidget {
   final Color? color;
   final double? height;
   final TextAlign? textAlign;
-
+  final TextDecoration? textDecoration;
 
  const  PowerText({
      Key? key,
@@ -23,7 +23,8 @@ class PowerText extends StatelessWidget {
      this.lineHeight,
      this.color,
      this.height,
-     this.textAlign
+     this.textAlign,
+     this.textDecoration
    }) : super(key: key);
 
   @override
@@ -39,7 +40,7 @@ class PowerText extends StatelessWidget {
         fontStyle: FontStyle.normal,
         color: color??  const Color(0xFF263238),
         height: height,
-
+        decoration: textDecoration
       ),
     );
   }

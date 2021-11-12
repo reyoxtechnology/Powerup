@@ -108,8 +108,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         bgColor: Colors.transparent,
         txtColor: const Color(0xFF263238),
         onTap: () {
-          // ignore: avoid_print
-          print('push to login');
+          
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (_) => const LoginScreen()));
         },

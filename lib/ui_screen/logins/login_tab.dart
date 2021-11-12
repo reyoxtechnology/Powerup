@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:powerup/ui_screen/forgotpassword/forgot_pwd.dart';
+import 'package:powerup/ui_screen/forgotpassword/forgot_pwd_screen.dart';
 import 'package:powerup/ui_screen/power/power_cantap.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 import 'package:powerup/ui_screen/power/power_textfield.dart';
@@ -52,8 +52,8 @@ class LoginTab extends StatelessWidget {
                 child: PowerTxtBtn(
                   text: 'continue',
                   onTap: () {
-                    // ignore: avoid_print
-                    print('you clicked password');
+                   
+                   
                   },
                 )),
           ],
