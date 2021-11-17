@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_ripple_animation/simple_ripple_animation.dart';
 
-class SwipeUpWidget extends StatelessWidget {
-  const SwipeUpWidget({Key? key}) : super(key: key);
+class RippleButtonWidget extends StatelessWidget {
+  const RippleButtonWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +13,15 @@ class SwipeUpWidget extends StatelessWidget {
       children:[
 
         RippleAnimation(
-          color:Color(0x73E5A021),
+          color:const Color(0x73E5A021),
           repeat:true,
           ripplesCount:1,
-          minRadius: 143.h/2,
+          minRadius: 144.h/2,
           child:Container(
-          height: 164.h,
-          width: 164.h,
+          height: 144.h,
+          width: 144.h,
           decoration: BoxDecoration(
-          color:Color(0x73E5A021),
+         // color:Color(0x73E5A021),
           shape: BoxShape.circle,
         )) ,
 
@@ -33,12 +33,12 @@ class SwipeUpWidget extends StatelessWidget {
       ripplesCount: 1,
       color:Color(0x73E5A021),
       repeat: true,
-      minRadius: 119.h/2, 
+      minRadius: 123.h/2, 
       child:Container(
-         height: 143.h,
-         width: 143.h,
+         height: 123.h,
+         width: 123.h,
          decoration: BoxDecoration(
-           color: Color(0x80E39E1F),
+          // color: Color(0x80E39E1F),
            shape: BoxShape.circle,
          ))
     )
@@ -46,8 +46,8 @@ class SwipeUpWidget extends StatelessWidget {
 
 
     Container(
-    height: 119.h,
-    width: 119.h,
+    height: 99.h,
+    width: 99.h,
     decoration: BoxDecoration(
     color: Color(0xFFE19F21),
     shape: BoxShape.circle,
@@ -55,12 +55,12 @@ class SwipeUpWidget extends StatelessWidget {
 
 
         Container(
-          height:63.h ,
-          width:63.h ,
+          height:43.h ,
+          width:43.h ,
           child: Image.asset(
               'power_imgs/light_icon.png',
-              height: 63.h,
-              width: 63.h,
+              height: 43.h,
+              width: 43.h,
               fit:BoxFit.cover
           )
         )

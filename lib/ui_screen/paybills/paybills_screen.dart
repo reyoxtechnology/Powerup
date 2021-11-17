@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:powerup/ui_screen/baseui/mainbaseui.dart';
 import 'package:powerup/ui_screen/power/power_cantap.dart';
 import 'package:powerup/ui_screen/power/power_grid.dart';
+import 'package:powerup/ui_screen/power/power_scrollbehaviour.dart';
 
 const String phcnPath = 'power_imgs/paybills_imgs';
 
@@ -25,24 +26,27 @@ class PayBills extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainBaseUi(
         title: 'Pay Bills',
-        child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2),
-            itemCount: payBillsData.length,
-            itemBuilder: (context, index) {
-              dynamic obj = payBillsData[index];
-              String title =obj['name'];
-              String url =  obj['photoUrl'];
-              return PowerCantap(
-                  child: PowerGrid(
-                      footer: title,
-                      imageUrl:url,
-                      doCoverImg: false,
-                      ),
-                  onTap: () {
-                    
-                  });
-            }),
+        child: ScrollConfiguration(
+          behavior: PowerScrollBehavior(),
+          child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2),
+              itemCount: payBillsData.length,
+              itemBuilder: (context, index) {
+                dynamic obj = payBillsData[index];
+                String title =obj['name'];
+                String url =  obj['photoUrl'];
+                return PowerCantap(
+                    child: PowerGrid(
+                        footer: title,
+                        imageUrl:url,
+                        doCoverImg: false,
+                        ),
+                    onTap: () {
+                      
+                    });
+              }),
+        ),
         showBackButton: true);
   }
 }

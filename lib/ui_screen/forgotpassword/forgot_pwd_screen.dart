@@ -38,46 +38,53 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseUi(
-        child: Stack(children: [
-      Positioned(
-        top: 0.0,
-        child: header(context),
-        left: -19.w,
-      ),
-      Positioned(top: 28.h, left: 38.w, child: title()),
-      Positioned(
-          top: 139.h,
-          left: 0.0,
-          right: 0.0,
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 25.h),
-                child: Center(
-                    child: isKeyboardUp
-                        ? tempWidget()
-                        : Image.asset(
-                            'power_imgs/poweruplogo.png',
-                            width: 230.w,
-                            height: 78.h,
-                          )),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 11.h),
-                child: isKeyboardUp
-                    ? SizedBox()
-                    : Image.asset(
-                        'power_imgs/quickpay_logo.png',
-                        width: 270.w,
-                        height: 234.h,
-                      ),
-              ),
-              inputDetail(),
-              sendBtn(context)
-            ],
-          ))
-    ]));
+    return GestureDetector(
+      onDoubleTap: () {
+        if (focusNode.hasFocus) {
+          focusNode.unfocus();
+        }
+      },
+      child: BaseUi(
+          child: Stack(children: [
+        Positioned(
+          top: 0.0,
+          child: header(context),
+          left: -19.w,
+        ),
+        Positioned(top: 28.h, left: 38.w, child: title()),
+        Positioned(
+            top: 139.h,
+            left: 0.0,
+            right: 0.0,
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 25.h),
+                  child: Center(
+                      child: isKeyboardUp
+                          ? tempWidget()
+                          : Image.asset(
+                              'power_imgs/poweruplogo.png',
+                              width: 230.w,
+                              height: 78.h,
+                            )),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 11.h),
+                  child: isKeyboardUp
+                      ? SizedBox()
+                      : Image.asset(
+                          'power_imgs/quickpay_logo.png',
+                          width: 270.w,
+                          height: 234.h,
+                        ),
+                ),
+                inputDetail(),
+                sendBtn(context)
+              ],
+            ))
+      ])),
+    );
   }
 
   Widget header(BuildContext context) {
@@ -126,9 +133,7 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
               )),
           PowerTextField(
             focusNode: focusNode,
-            onChange: (value){
-              
-            },
+            onChange: (value) {},
           ),
         ],
       ),
@@ -142,10 +147,8 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
       child: PowerTxtBtn(
         bgColor: const Color(0xff082F7C),
         text: 'send',
-        onTap: () => goto(screen:  EnterCodeScreen(), context: context),
+        onTap: () => goto(screen: EnterCodeScreen(), context: context),
       ),
     );
   }
-
-  
 }

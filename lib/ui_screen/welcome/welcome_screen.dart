@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:powerup/ui_screen/buyunit/buyunit_screen.dart';
 import 'package:powerup/ui_screen/buyunit/guestbuy_screen.dart';
-import 'package:powerup/ui_screen/logins/baseui_loginstyle.dart';
 import 'package:powerup/ui_screen/power/power_cantap.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
-import 'package:powerup/ui_screen/power/power_txtbtn.dart';
-import 'package:powerup/ui_screen/swipeup_widget.dart';
+import 'package:powerup/ui_screen/ripplebtnwidget.dart';
 import 'package:powerup/utils/general_functions.dart';
 import '../logins/login_screen.dart';
 
@@ -21,22 +17,44 @@ class WelcomeScreen extends StatefulWidget {
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
   String? bgImage;
   bool isFirstScreen = true;
   double topPosition = -100.h;
-  double txtPosition = -100;
+  double txtPosition = -90;
   double swipeupPosition = -200;
   double bottomPosition = -600;
+  late Animation<double> animation;
+  late AnimationController controller;
+
+  txtAnimation() {
+    controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+    animation = Tween<double>(begin: 25.h, end: 45.h).animate(controller)
+      ..addListener(() {
+        setState(() {
+          txtPosition = animation.value;
+        });
+      })
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          controller.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          controller.forward();
+        }
+      });
+    controller.forward();
+  }
 
   changePositon() {
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         topPosition = 29.h;
-        txtPosition = 30.h;
-        swipeupPosition = 92.h;
+        swipeupPosition = 115.h;
         bottomPosition = -127.h;
       });
+      txtAnimation();
     });
   }
 
@@ -57,27 +75,25 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       ),
       body: GestureDetector(
         onVerticalDragStart: (DragStartDetails details) {
-          if (isFirstScreen) {
-            setState(() {
-              isFirstScreen = false;
-            });
-          }
+          // if (isFirstScreen) {
+          //   setState(() {
+          //     isFirstScreen = false;
+          //   });
+          // }
         },
         child: Stack(
           children: [
             Positioned(
-                child: Container(
-              child: Image.asset(
-                isFirstScreen
-                    ? 'power_imgs/welcome_bg_img.png'
-                    : 'power_imgs/bulb_bg.png',
-                fit: BoxFit.fill,
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-              ),
+                child: Image.asset(
+              isFirstScreen
+                  ? 'power_imgs/welcome_bg_img.png'
+                  : 'power_imgs/bulb_bg.png',
+              fit: BoxFit.fill,
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
             )), //Image.asset('power_imgs/welcome_bg_img.png')
             AnimatedPositioned(
-                duration: Duration(milliseconds: 450),
+                duration: const Duration(milliseconds: 450),
                 top: topPosition,
                 left: 28.w,
                 right: 28.w,
@@ -102,24 +118,26 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             // )
 
             AnimatedPositioned(
-                duration: Duration(milliseconds: 450),
+                duration: const Duration(milliseconds: 450),
                 left: -20.w,
                 bottom: bottomPosition,
                 child: Bottom()),
-            AnimatedPositioned(
-              duration: Duration(milliseconds: 450),
+            Positioned(
+             // duration: const Duration(milliseconds: 450),
               bottom: txtPosition,
-              left: 106.w,
-              child: Txt(),
+              left: 135.w,
+              child: txt(),
             ),
             AnimatedPositioned(
-              duration: Duration(milliseconds: 450),
+              duration: const Duration(milliseconds: 450),
               bottom: swipeupPosition,
-              left: 115.w,
+              left: 125.w,
               child: PowerCantap(
-                  child: const SwipeUpWidget(),
+                  child: const RippleButtonWidget(),
                   onTap: () {
-                    goto(screen: const GuestBuyScreen(), context: context);
+                    goto(
+                      screen: const GuestBuyScreen(),
+                     context: context);
                   }),
             )
           ],
@@ -150,26 +168,29 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   // }
 
   Widget Bottom() {
-    return ClipOval(
-      child: Container(
-        height: 318.h,
-        width: 414.w,
-        color: Colors.white,
+    return GestureDetector(
+      onVerticalDragUpdate: (DragUpdateDetails details) {
+        int sensitivity = 5;
+        if (details.delta.dy < -5) {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => const LoginScreen()));
+        }
+      },
+      child: ClipOval(
+        child: Container(
+          height: 318.h,
+          width: 414.w,
+          color: Colors.white,
+        ),
       ),
     );
   }
 
-  Widget Txt() {
-    return Container(
-      child: PowerTxtBtn(
-        bgColor: Colors.transparent,
-        txtColor: const Color(0xFF263238),
-        onTap: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (_) => const LoginScreen()));
-        },
-        text: 'Swipe up to login',
-      ),
+  Widget txt() {
+    return const PowerText(
+      color: Color(0xFF263238),
+      textAlign: TextAlign.center,
+      text: 'Swipe up to login',
     );
   }
 }

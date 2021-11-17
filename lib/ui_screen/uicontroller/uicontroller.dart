@@ -20,14 +20,16 @@ class _UiControllerState extends State<UiController> {
 
   @override
   void initState() {
-    // TODO: implement initState
     allWidget = [
-      HomeScreen(),
+     const HomeScreen(),
       Container(),
-      BuyUnitScreen(),
-      PaymentScreen(),
+      const BuyUnitScreen(),
+      const PaymentScreen(),
       const SettingScreen(
-          name: 'aikd', emailAddress: 'aikdman7@gmail.com', isReseller: true)
+          name: 'aikd',
+           emailAddress: 'aikdman7@gmail.com', 
+           isReseller: true
+           )
     ];
     super.initState();
   }
@@ -57,7 +59,7 @@ Widget fab() {
     Container(
       width: 60.h,
       height: 60.h,
-      decoration: BoxDecoration(
+      decoration:const BoxDecoration(
         shape: BoxShape.circle,
         color: Color(0xffE19F21)
       ),

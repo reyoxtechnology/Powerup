@@ -33,7 +33,6 @@ class PowerBottomNavBar extends StatelessWidget {
               BottomNavigationBarItem(
                 label: 'Home',
                 icon: Icon(Icons.home_filled),
-
               ),
               BottomNavigationBarItem(
                   icon: Icon(Icons.history),

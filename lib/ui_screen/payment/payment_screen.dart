@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:powerup/ui_screen/baseui/mainbaseui.dart';
+import 'package:powerup/ui_screen/power/power_scrollbehaviour.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 import 'package:powerup/ui_screen/power/power_txtbtn.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,25 +14,28 @@ class PaymentScreen extends StatelessWidget {
     return MainBaseUi(
       title: 'Payment',
       showBackButton: true,
-      child: SingleChildScrollView(
-        child: Column(children: [
-          detail('Cards', 'Add Card'),
-          SizedBox(height: 247.h, 
-          child: Container(
-            margin: EdgeInsets.only(top:34.h,),
-            alignment: Alignment.topCenter,
-            child: notAvailable('No Cards Available')
-          )
-          ),
-          detail('Promotion', 'Add promo code'),
-          SizedBox(height: 247.h,
-           child: Container(
+      child: ScrollConfiguration(
+         behavior: PowerScrollBehavior(),
+        child: SingleChildScrollView(
+          child: Column(children: [
+            detail('Cards', 'Add Card'),
+            SizedBox(height: 247.h, 
+            child: Container(
+              margin: EdgeInsets.only(top:34.h,),
               alignment: Alignment.topCenter,
-              margin: EdgeInsets.only(top:34.h),
-             child: notAvailable('No Promos Availble '),
-           )
-           )
-        ]),
+              child: notAvailable('No Cards Available')
+            )
+            ),
+            detail('Promotion', 'Add promo code'),
+            SizedBox(height: 247.h,
+             child: Container(
+                alignment: Alignment.topCenter,
+                margin: EdgeInsets.only(top:34.h),
+               child: notAvailable('No Promos Availble '),
+             )
+             )
+          ]),
+        ),
       ),
     );
   }

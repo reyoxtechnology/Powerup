@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:powerup/ui_screen/baseui.dart';
+import 'package:powerup/ui_screen/power/power_scrollbehaviour.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -52,79 +53,82 @@ class _SettingScreenState extends State<SettingScreen> {
                 Expanded(
                     child: Container(
                       margin: EdgeInsets.only(left: 15.w,right: 15.w),
-                      child: ListView(
+                      child: ScrollConfiguration(
+                        behavior: PowerScrollBehavior(),
+                        child: ListView(
                   children: [
-                      Container(
-                        decoration: const BoxDecoration(
-                          border:Border(bottom:BorderSide( 
-                          color:Color(0xffDFE2E4)
-                            ) )
-                        ),
-                        child: ListTile(
-                          title: PowerText(
-                            text: 'Profile',
-                            fontSize: 18.sp,
+                        Container(
+                          decoration: const BoxDecoration(
+                            border:Border(bottom:BorderSide( 
+                            color:Color(0xffDFE2E4)
+                              ) )
+                          ),
+                          child: ListTile(
+                            title: PowerText(
+                              text: 'Profile',
+                              fontSize: 18.sp,
+                            ),
                           ),
                         ),
-                      ),
 
 
-                      Container(
-                        decoration: const BoxDecoration(
-                          border:Border(bottom:BorderSide( 
-                          color:Color(0xffDFE2E4)
-                            ) )
+                        Container(
+                          decoration: const BoxDecoration(
+                            border:Border(bottom:BorderSide( 
+                            color:Color(0xffDFE2E4)
+                              ) )
+                          ),
+                          child: ListTile(
+                            title: PowerText(text: 'Security', fontSize: 18.sp),
+                          ),
                         ),
-                        child: ListTile(
-                          title: PowerText(text: 'Security', fontSize: 18.sp),
-                        ),
-                      ),
 
-                      Container(
-                        decoration: const BoxDecoration(
-                          border:Border(bottom:BorderSide( 
-                          color:Color(0xffDFE2E4)
-                            ) )
+                        Container(
+                          decoration: const BoxDecoration(
+                            border:Border(bottom:BorderSide( 
+                            color:Color(0xffDFE2E4)
+                              ) )
+                          ),
+                          child: ListTile(
+                            title: PowerText(text: 'Manage Meters', fontSize: 18.sp),
+                          ),
                         ),
-                        child: ListTile(
-                          title: PowerText(text: 'Manage Meters', fontSize: 18.sp),
-                        ),
-                      ),
 
-                      Container(
-                        decoration: const BoxDecoration(
-                          border:Border(bottom:BorderSide( 
-                          color:Color(0xffDFE2E4)
-                            ) )
-                        ),
-                        child: ListTile(
-                          title: PowerText(text: 'Reseller', fontSize: 18.sp),
-                          trailing: SizedBox(
-                            width:68.w,
-                            height:32.h,
-                            child:FittedBox(
-                              child:CupertinoSwitch(
-                              value: isReseller,
-                               onChanged: onChanged,
-                               activeColor: const Color(0xff082F7C)
-                               ),
+                        Container(
+                          decoration: const BoxDecoration(
+                            border:Border(bottom:BorderSide( 
+                            color:Color(0xffDFE2E4)
+                              ) )
+                          ),
+                          child: ListTile(
+                            title: PowerText(text: 'Reseller', fontSize: 18.sp),
+                            trailing: SizedBox(
+                              width:68.w,
+                              height:32.h,
+                              child:FittedBox(
+                                child:CupertinoSwitch(
+                                value: isReseller,
+                                 onChanged: onChanged,
+                                 activeColor: const Color(0xff082F7C)
+                                 ),
+                              )
                             )
-                          )
-                               ),
-                      ),
-                      
-                      Container(
-                        decoration: const BoxDecoration(
-                          border:Border(bottom:BorderSide( 
-                          color:Color(0xffDFE2E4)
-                            ) )
+                                 ),
                         ),
-                        child: ListTile(
-                          title: PowerText(text: 'Logout', fontSize: 18.sp),
+                        
+                        Container(
+                          decoration: const BoxDecoration(
+                            border:Border(bottom:BorderSide( 
+                            color:Color(0xffDFE2E4)
+                              ) )
+                          ),
+                          child: ListTile(
+                            title: PowerText(text: 'Logout', fontSize: 18.sp),
+                          ),
                         ),
-                      ),
                   ],
                 ),
+                      ),
                     )
                 )
               ])),

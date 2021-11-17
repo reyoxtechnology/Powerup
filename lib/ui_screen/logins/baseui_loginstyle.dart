@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:powerup/ui_screen/power/power_scrollbehaviour.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 
 class BaseUiLoginStyle extends StatefulWidget {
@@ -12,7 +13,8 @@ class BaseUiLoginStyle extends StatefulWidget {
   final Color? tabbarTxtColor;
   final Color? tabIndicatorColor;
   final double? indicatorPadding;
-  BaseUiLoginStyle(
+  
+  const BaseUiLoginStyle(
       {Key? key,
       this.tabbars,
       this.topLogo,
@@ -68,7 +70,9 @@ class _BaseUiLoginStyleState extends State<BaseUiLoginStyle>
             child: Header(),
           ),
           Expanded(
-            child: TabBarView(
+            child: ScrollConfiguration(
+              behavior:PowerScrollBehavior(),
+              child:TabBarView(
               controller: tabController,
               children: children ??
                   [
@@ -79,8 +83,9 @@ class _BaseUiLoginStyleState extends State<BaseUiLoginStyle>
                       text: 'content 2',
                     )
                   ],
-            ),
-          )
+                    ),
+                     )
+            )
         ],
       ),
     );
@@ -94,7 +99,7 @@ class _BaseUiLoginStyleState extends State<BaseUiLoginStyle>
         Stack(
           children: [
             Image.asset(
-              topLogo ?? 'power_imgs/power_dark_logo.jpeg',
+              topLogo ?? 'power_imgs/poweruplogo_dark_trans.png',
               height: 234.h,
               width: 270.w,
             ),
