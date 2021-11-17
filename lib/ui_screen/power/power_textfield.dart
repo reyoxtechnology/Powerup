@@ -11,6 +11,8 @@ class PowerTextField extends StatelessWidget {
   final dynamic onChange;
   final int? maxLength;
   final bool? readOnly;
+  final Widget? suffix;
+  final String? labelTxt;
   PowerTextField(
       {Key? key,
       this.txtController,
@@ -20,6 +22,8 @@ class PowerTextField extends StatelessWidget {
       this.textAlign,
       this.maxLength,
       this.readOnly,
+      this.suffix,
+      this.labelTxt,
       this.onChange})
       : super(key: key);
   final dynamic _outlineInputBorder = OutlineInputBorder(
@@ -43,12 +47,15 @@ class PowerTextField extends StatelessWidget {
         },
         decoration: InputDecoration(
           filled: true,
+           suffixIcon:suffix  ,
           contentPadding: EdgeInsets.only(left: 24.sp),
           focusedBorder: _outlineInputBorder,
           disabledBorder: _outlineInputBorder,
           enabledBorder: _outlineInputBorder,
+          labelText: labelTxt,
           fillColor: const Color(0xFFF3F6FA),
           border: _outlineInputBorder,
+          counterText: ''
         ),
       ),
     );

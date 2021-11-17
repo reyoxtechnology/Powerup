@@ -13,7 +13,7 @@ class PowerText extends StatelessWidget {
   final double? height;
   final TextAlign? textAlign;
   final TextDecoration? textDecoration;
-
+  
  const  PowerText({
      Key? key,
      required this.text,
@@ -33,7 +33,11 @@ class PowerText extends StatelessWidget {
       text,
       softWrap: true,
       textAlign:textAlign ,
+      strutStyle: StrutStyle(
+        height: lineHeight
+      ),
       style: TextStyle(
+
         fontSize: fontSize??18.h,
         fontFamily: fontFamily?? 'Poppins',
         fontWeight: fontWeight??FontWeight.w600,

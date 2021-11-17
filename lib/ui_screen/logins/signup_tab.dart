@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 import 'package:powerup/ui_screen/power/power_textfield.dart';
 import 'package:powerup/ui_screen/power/power_txtbtn.dart';
+import 'package:powerup/ui_screen/uicontroller/uicontroller.dart';
+import 'package:powerup/utils/general_functions.dart';
 
 class SignUpTab extends StatelessWidget {
    SignUpTab({Key? key}) : super(key: key);
@@ -20,16 +22,20 @@ class SignUpTab extends StatelessWidget {
         children: [
          Container(
            margin: EdgeInsets.only(bottom: 9.h),
-           child:PowerText(text: 'Full-Name',color: Color(0xff979797),)
+           child:const PowerText(text: 'Full-Name',color: Color(0xff979797),)
          )  ,
-          PowerTextField(),
+          PowerTextField(
+          ),
          Container(
            margin: EdgeInsets.only(top: 21.h,bottom: 9.h),
-           child:PowerText(text: 'Email Address',color:Color(0xff979797) ,) ,
+           child:const PowerText(text: 'Email Address',color:Color(0xff979797) ,) ,
          ) ,
           PowerTextField(),
          Container(
-           child:PowerText(text:'Password',color: Color(0xff979797),) ,
+           child:const PowerText(
+             text:'Password',
+             color: Color(0xff979797),
+             ) ,
            margin: EdgeInsets.only(top: 12.h,bottom: 9.h),
          ) ,
           PowerTextField(
@@ -39,7 +45,9 @@ class SignUpTab extends StatelessWidget {
             margin: EdgeInsets.only(top: 30.h),
             child:PowerTxtBtn(
               text: 'continue',
-              onTap: (){},
+              onTap: (){
+                goto(screen: const UiController(), context: context);
+              },
             )
           ) ,
 

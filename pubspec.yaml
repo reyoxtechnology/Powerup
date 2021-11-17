@@ -47,6 +47,7 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_screenutil: ^5.0.0+2
   flutter_svg: ^0.23.0+1
+  simple_ripple_animation: ^0.0.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -61,15 +62,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - power_imgs/poweruplogo.png
-      - power_imgs/welcome_bg_img.png
-      - power_imgs/bulb_bg.png
-      - power_imgs/bg_image_sun.svg
-      - power_imgs/powerup_translogo.png
-      - power_imgs/light_icon.png
-      - power_imgs/quickpay_logo.png
-      - power_imgs/lock.png
-      - power_imgs/reload_img.png
+      - power_imgs/
+      - power_imgs/buydata_imgs/
+      - power_imgs/payment_imgs/
+      - power_imgs/paybills_imgs/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

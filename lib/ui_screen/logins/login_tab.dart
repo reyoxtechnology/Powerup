@@ -6,6 +6,7 @@ import 'package:powerup/ui_screen/power/power_cantap.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 import 'package:powerup/ui_screen/power/power_textfield.dart';
 import 'package:powerup/ui_screen/power/power_txtbtn.dart';
+import 'package:powerup/ui_screen/uicontroller/uicontroller.dart';
 import 'package:powerup/utils/general_functions.dart';
 
 class LoginTab extends StatelessWidget {
@@ -31,7 +32,9 @@ class LoginTab extends StatelessWidget {
                 color: Color(0xff979797),
               ),
             ),
-            PowerTextField(),
+            PowerTextField(
+              obscureText: true,
+            ),
             Container(
               margin: EdgeInsets.only(top: 13.h),
               child: PowerCantap(
@@ -52,8 +55,7 @@ class LoginTab extends StatelessWidget {
                 child: PowerTxtBtn(
                   text: 'continue',
                   onTap: () {
-                   
-                   
+                    goto(screen: const UiController(), context: context);
                   },
                 )),
           ],

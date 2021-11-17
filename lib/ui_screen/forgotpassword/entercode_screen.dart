@@ -107,6 +107,7 @@ class EnterCodeScreen extends StatelessWidget {
                                     margin: EdgeInsets.only(right: 5.w),
                                     child: PowerTextField(
                                       focusNode: focusNode1,
+                                      maxLength: 1,
                                       txtController: txtController1,
                                       onChange: (String value) {
                                         if (value.length == 1)
@@ -118,6 +119,7 @@ class EnterCodeScreen extends StatelessWidget {
                                     margin: EdgeInsets.only(right: 5.w),
                                     child: PowerTextField(
                                       focusNode: focusNode2,
+                                      maxLength: 1,
                                       txtController: txtController2,
                                       onChange: (String value) {
                                         if (value.length == 1)
@@ -129,6 +131,7 @@ class EnterCodeScreen extends StatelessWidget {
                                     margin: EdgeInsets.only(right: 5.w),
                                     child: PowerTextField(
                                       focusNode: focusNode3,
+                                      maxLength: 1,
                                       txtController: txtController3,
                                       onChange: (String value) {
                                         if (value.length == 1)
@@ -139,6 +142,7 @@ class EnterCodeScreen extends StatelessWidget {
                                 child: PowerTextField(
                               focusNode: focusNode4,
                               txtController: txtController4,
+                              maxLength: 1,
                               onChange: (String value) {
                                 if (value.length == 1) focusNode4.unfocus();
                               },

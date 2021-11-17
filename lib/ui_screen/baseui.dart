@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:powerup/ui_screen/power/power_text.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BaseUi extends StatelessWidget {
   final Widget child;
   final Color? bgColor;
-  const BaseUi({Key? key, required this.child,this.bgColor}) : super(key: key);
+  final bool? extendBodyBehindAppBar;
+  final AppBar? appBar;
+
+  const BaseUi({
+    Key? key,
+    required this.child,
+    this.bgColor,
+    this.extendBodyBehindAppBar,
+    this.appBar,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBodyBehindAppBar: true,
+        appBar: appBar,
+        extendBodyBehindAppBar: extendBodyBehindAppBar??true,
         backgroundColor: bgColor,
-        body: Container(
-          child: child,
-        ));
+        body: child
+        );
   }
 }
