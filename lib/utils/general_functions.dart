@@ -67,7 +67,7 @@ void showDialogBox(BuildContext context, {double? height, double? width}) {
                   fontSize: 16.sp,
                   onTap: () => pop(context),
                   borderRadius: 39.r,
-                  bgColor: Color(0xFFE19F21),
+                  bgColor:const Color(0xFFE19F21),
                 ),
               ),
             ],

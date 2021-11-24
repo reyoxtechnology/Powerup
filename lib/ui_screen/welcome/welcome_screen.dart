@@ -48,7 +48,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   }
 
   changePositon() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 5), () {
       setState(() {
         topPosition = 29.h;
         swipeupPosition = 115.h;

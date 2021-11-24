@@ -6,7 +6,7 @@ class PowerBtn extends StatelessWidget {
   final Color? btnColor;
   final Color? txtColor;
   final String text;
-  final dynamic? onTap;
+  final dynamic onTap;
 
   const PowerBtn({Key? key,
     this.txtColor,
@@ -20,7 +20,7 @@ class PowerBtn extends StatelessWidget {
 
         onPressed: (){
           if(onTap!=null){
-            this.onTap();
+            onTap();
           }
         },
         child: PowerText(text: text)

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:powerup/ui_screen/baseui.dart';
-import 'package:powerup/ui_screen/power/power_cantap.dart';
+import 'package:powerup/ui_screen/baseui/baseui.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 import 'package:powerup/utils/general_functions.dart';
 
@@ -28,14 +27,14 @@ class NotificationScreen extends StatelessWidget {
             color:const Color(0xFF383838),
             icon: const Icon(
               Icons.arrow_back,
-              color:const Color(0xFF383838) ,
+              color: Color(0xFF383838) ,
               ),
           ),
           actions: [
             IconButton(onPressed: (){},
              icon:const Icon(
                CupertinoIcons.ellipsis_vertical,
-             color: const Color(0xFF383838),
+             color:  Color(0xFF383838),
              )
              )
           ],

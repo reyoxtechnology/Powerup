@@ -17,16 +17,6 @@ class MyApp extends StatelessWidget {
         return const MaterialApp(
           debugShowCheckedModeBanner: false,
           home: WelcomeScreen()  
-          //UiController()
-          //HomeScreen()
-          //PayBills()
-          //PaymentScreen()
-          //BuyDataScreen()
-          // BuyUnitScreen()
-          //  SettingScreen(
-          //   name: 'aikd',
-          //    emailAddress: 'aikdman7@gmail.com',
-          //     isReseller: true) // WelcomeScreen(),
         );
       },
     );

@@ -34,7 +34,7 @@ class _BuyUnitState extends State<BuyUnitScreen> {
            behavior: PowerScrollBehavior(),
            child: ListView(
              shrinkWrap: true,
-             physics: AlwaysScrollableScrollPhysics(),
+             physics: const AlwaysScrollableScrollPhysics(),
              children: [
                Container(
                  margin: EdgeInsets.only(top: 16.h, bottom: 12.h),
@@ -88,7 +88,7 @@ class _BuyUnitState extends State<BuyUnitScreen> {
                    bgColor: const Color(0xFFE19F21),
                    text: 'Continue',
                    onTap: () =>
-                       goto(screen: GuestBuyScreen(), context: context),
+                       goto(screen:const GuestBuyScreen(), context: context),
                  ),
                ),
                Container(

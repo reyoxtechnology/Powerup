@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:powerup/ui_screen/baseui.dart';
+import 'package:powerup/ui_screen/baseui/baseui.dart';
 import 'package:powerup/ui_screen/buydata/buydata_screen.dart';
 import 'package:powerup/ui_screen/notification/notification_screen.dart';
 import 'package:powerup/ui_screen/paybills/paybills_screen.dart';
@@ -75,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: IconButton(
                     onPressed: () {
-                      goto(screen: PayBills(), context: context);
+                      goto(screen:const PayBills(), context: context);
                     },
                     icon: Icon(
                       Icons.lightbulb,
@@ -186,7 +186,7 @@ class HomeScreen extends StatelessWidget {
           )),
           Container(
             margin: EdgeInsets.only(left: 20.w,right:20.w,top: 10.h),
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(
               color: Colors.white,    
               borderRadius: BorderRadius.circular(10)

@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/gestures/monodrag.dart';
 
 class PowerScrollBehavior extends ScrollBehavior {
   

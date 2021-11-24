@@ -40,7 +40,7 @@ class PowerTxtBtn extends StatelessWidget {
               RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(borderRadius ?? 15.r))),
           backgroundColor: MaterialStateProperty.resolveWith(
-              (states) => bgColor ?? Color(0xFFE19F21)),
+              (states) => bgColor ??const Color(0xFFE19F21)),
         ),
         onPressed: () {
           onTap();

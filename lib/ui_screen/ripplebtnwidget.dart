@@ -20,7 +20,7 @@ class RippleButtonWidget extends StatelessWidget {
           child:Container(
           height: 144.h,
           width: 144.h,
-          decoration: BoxDecoration(
+          decoration:const BoxDecoration(
          // color:Color(0x73E5A021),
           shape: BoxShape.circle,
         )) ,
@@ -31,13 +31,13 @@ class RippleButtonWidget extends StatelessWidget {
 
     RippleAnimation(
       ripplesCount: 1,
-      color:Color(0x73E5A021),
+      color:const Color(0x73E5A021),
       repeat: true,
       minRadius: 123.h/2, 
       child:Container(
          height: 123.h,
          width: 123.h,
-         decoration: BoxDecoration(
+         decoration:const BoxDecoration(
           // color: Color(0x80E39E1F),
            shape: BoxShape.circle,
          ))
@@ -48,7 +48,7 @@ class RippleButtonWidget extends StatelessWidget {
     Container(
     height: 99.h,
     width: 99.h,
-    decoration: BoxDecoration(
+    decoration:const BoxDecoration(
     color: Color(0xFFE19F21),
     shape: BoxShape.circle,
     ),),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:powerup/ui_screen/baseui.dart';
+import 'package:powerup/ui_screen/baseui/baseui.dart';
 import 'package:powerup/ui_screen/forgotpassword/entercode_screen.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -72,7 +72,7 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
                 Container(
                   margin: EdgeInsets.only(top: 11.h),
                   child: isKeyboardUp
-                      ? SizedBox()
+                      ?const SizedBox()
                       : Image.asset(
                           'power_imgs/quickpay_logo.png',
                           width: 270.w,

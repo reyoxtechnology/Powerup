@@ -8,6 +8,7 @@ import 'package:powerup/ui_screen/power/power_txtbtn.dart';
 import 'package:powerup/ui_screen/uicontroller/uicontroller.dart';
 import 'package:powerup/utils/general_functions.dart';
 
+// ignore: must_be_immutable
 class SignUpTab extends StatelessWidget {
    SignUpTab({Key? key}) : super(key: key);
 
