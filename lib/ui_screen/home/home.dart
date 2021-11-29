@@ -172,7 +172,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 20.h,left: 20.w,bottom: 15.h),
             child: PowerText(
-              text: '₦0.00 ',
+              text: 'N 0.00 ',
               color: Colors.white,
               fontSize: 25.sp,
               fontWeight: FontWeight.bold,
@@ -181,7 +181,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(left: 20.w,bottom: 10.h),
               child: const PowerText(
-            text: 'Book Balance: ₦0.00',
+            text: 'Book Balance: N 0.00',
             color: Colors.white,
           )),
           Container(
