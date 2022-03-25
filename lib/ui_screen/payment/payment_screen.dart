@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:powerup/ui_screen/baseui/mainbaseui.dart';
 import 'package:powerup/ui_screen/power/power_scrollbehaviour.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';

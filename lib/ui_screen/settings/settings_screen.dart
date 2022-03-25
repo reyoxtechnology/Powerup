@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:powerup/ui_screen/baseui/baseui.dart';
 import 'package:powerup/ui_screen/power/power_scrollbehaviour.dart';
@@ -106,7 +106,7 @@ class _SettingScreenState extends State<SettingScreen> {
                               width:68.w,
                               height:32.h,
                               child:FittedBox(
-                                child:CupertinoSwitch(
+                                child: CupertinoSwitch(
                                 value: isReseller,
                                  onChanged: onChanged,
                                  activeColor: const Color(0xff082F7C)

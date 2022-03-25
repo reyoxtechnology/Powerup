@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:powerup/ui_screen/power/power_text.dart';
 
 class BaseUi extends StatelessWidget {

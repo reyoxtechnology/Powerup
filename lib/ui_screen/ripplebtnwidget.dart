@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:simple_ripple_animation/simple_ripple_animation.dart';
 
@@ -52,18 +52,16 @@ class RippleButtonWidget extends StatelessWidget {
     color: Color(0xFFE19F21),
     shape: BoxShape.circle,
     ),),
-
-
-        Container(
-          height:43.h ,
-          width:43.h ,
-          child: Image.asset(
-              'power_imgs/light_icon.png',
-              height: 43.h,
-              width: 43.h,
-              fit:BoxFit.cover
-          )
+      Container(
+        height:43.h ,
+        width:43.h ,
+        child: Image.asset(
+            'power_imgs/light_icon.png',
+            height: 43.h,
+            width: 43.h,
+            fit:BoxFit.cover
         )
+      )
 
     ]
     );
