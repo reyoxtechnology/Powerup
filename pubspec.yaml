@@ -28,10 +28,14 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
+  device_info: ^2.0.3
+  flushbar: ^1.10.4
   flutter:
     sdk: flutter
+  http: ^0.13.4
   mvc_pattern: ^8.8.2
   provider: ^6.0.2
+  shared_preferences: ^2.0.13
 
 dev_dependencies:
   flutter_lints: ^1.0.0
