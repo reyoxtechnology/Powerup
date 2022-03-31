@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:powerup/ui_screen/power/power_text.dart';
 import 'package:powerup/ui_screen/power/power_txtbtn.dart';
 
+import '../ui_screen/forgotpassword/reset_password.dart';
+
 goto({required Widget screen, required BuildContext context}) {
   Navigator.of(context).push(MaterialPageRoute(builder: (context) => screen));
 }
@@ -49,7 +51,7 @@ void showDialogBox(BuildContext context, {double? height, double? width}) {
                 width: 263.w,
                 height: 20.h,
                 child: PowerText(
-                  text: 'You\'re welcome again',
+                  text: 'Next, set a New Password to login again!',
                   textAlign: TextAlign.center,
                   fontFamily: 'DM Sans',
                   fontWeight: FontWeight.w400,
@@ -60,12 +62,12 @@ void showDialogBox(BuildContext context, {double? height, double? width}) {
                 margin: EdgeInsets.only(top: 64.0.h),
                 width: 263.w,
                 child: PowerTxtBtn(
-                  text: 'Done',
+                  text: 'Enter New Password',
                   textAlign: TextAlign.center,
                   fontFamily: 'DM Sans',
                   fontWeight: FontWeight.w400,
                   fontSize: 16.sp,
-                  onTap: () => pop(context),
+                  onTap: () =>  goto(screen: const NewPasswordReset(), context: context),
                   borderRadius: 39.r,
                   bgColor:const Color(0xFFE19F21),
                 ),

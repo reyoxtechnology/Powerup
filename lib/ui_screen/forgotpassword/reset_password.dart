@@ -12,21 +12,24 @@ import 'package:powerup/utils/general_functions.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/email_password_reset.dart';
+import '../home/home.dart';
+import '../uicontroller/uicontroller.dart';
 
-class ForgotPwdScreen extends StatefulWidget {
-  const ForgotPwdScreen({Key key}) : super(key: key);
+class NewPasswordReset extends StatefulWidget {
+  const NewPasswordReset({Key key}) : super(key: key);
 
   @override
-  State<ForgotPwdScreen> createState() => _ForgotPwdScreenState();
+  State<NewPasswordReset> createState() => _NewPasswordResetState();
 }
 
-class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
+class _NewPasswordResetState extends State<NewPasswordReset> {
   final FocusNode focusNode = FocusNode();
 
   bool isKeyboardUp = false;
 
   final _formKey = GlobalKey<FormState>();
-  String _email;
+  String _newPassword;
+  String _newConfirmPassword;
 
   @override
   void initState() {
@@ -50,16 +53,16 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
 
   EmailVerifyPasswordReset fPassword = Provider.of<EmailVerifyPasswordReset>(context);
 
-    void _forgotPassword(){
+    void _resetPassword(){
     final form = _formKey.currentState;
     if (form.validate()) {
       form.save();
     }
-    Future<Map<String, dynamic>> response =  fPassword.forgotPassword(_email);
+    Future<Map<String, dynamic>> response =  fPassword.setNewPassword(_newPassword);
   
     response.then((value) => {
       if(value['status']){
-        goto(screen: EnterCodeScreen(), context: context)
+        goto(screen: const UiController(), context: context)
       } else {
         Flushbar(
           title: "Failed Login",
@@ -69,7 +72,6 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
       }
     });
   }
-
 
     return Form(
       key: _formKey,
@@ -122,7 +124,7 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
                     bgColor: const Color(0xff082F7C),
                     text: 'Send',
                     onTap: () => {
-                        _forgotPassword(), 
+                        _resetPassword(), 
                     },
                   ),
                 ),
@@ -151,7 +153,7 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           PowerText(
-            text: 'Forget',
+            text: 'New',
             color: const Color(0xFFFFFFFF),
             fontSize: 32.sp,
             textAlign: TextAlign.left,
@@ -174,12 +176,24 @@ class _ForgotPwdScreenState extends State<ForgotPwdScreen> {
           Container(
               margin: EdgeInsets.only(bottom: 9.h),
               child: const PowerText(
-                text: 'Email Address',
+                text: 'New Password',
                 color: Color(0xff979797),
               )),
           PowerTextField(
+            obscureText: true,
             focusNode: focusNode,
-            onChange: (value) => _email = value,
+            onChange: (value) => _newPassword = value,
+          ),
+        Container(
+              margin: EdgeInsets.only(bottom: 9.h),
+              child: const PowerText(
+                text: 'Confirm New Password',
+                color: Color(0xff979797),
+              )),
+          PowerTextField(
+            obscureText: true,
+            focusNode: focusNode,
+            onChange: (value) => _newConfirmPassword = value,
           ),
         ],
       ),

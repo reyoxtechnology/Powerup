@@ -1,6 +1,7 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:powerup/services/email_password_reset.dart';
 import 'package:powerup/ui_screen/welcome/welcome_screen.dart';
 import './providers/auth.dart';
 import './providers/user_provider.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => EmailVerifyPasswordReset())
       ],
       child: FutureBuilder(
       future: getUserData(),

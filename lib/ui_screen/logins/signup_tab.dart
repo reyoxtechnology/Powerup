@@ -17,6 +17,7 @@ import '../../utils/validators.dart';
 import '../../utils/widgets.dart';
 
 import '../../providers/auth.dart';
+import '../forgotpassword/verify_email_screen.dart';
 
 // ignore: must_be_immutable
 class SignUpTab extends StatefulWidget {
@@ -48,15 +49,13 @@ class _SignUpTab extends  State<SignUpTab>  {
         successfulMessage.then((response) {
           if (response['status']) {
             User user = response['user'];
-            print('== user ==');
-            print(user);
             Provider.of<UserProvider>(context, listen: false).setUser(user);
             //Navigator.pushReplacementNamed(context, '/dashboard');
-            goto(screen: const UiController(), context: context);
+            goto(screen: VerifyEmailScreen(), context: context);
           } else {
             Flushbar(
-              title: "Failed Login",
-              //message: response['message']['message'].toString(),
+              title: "Failed to Signup",
+              message: response['message'].toString(),
               duration: const Duration(seconds: 3),
             ).show(context);
           }
@@ -105,11 +104,7 @@ class _SignUpTab extends  State<SignUpTab>  {
               child:PowerTxtBtn(
                 text: 'continue',
                 onTap: (){
-                  print(fullNameController.text);
-                  print(emailController.text);
-                  print(passwordController.text);
                   _doSign();
-                  //goto(screen: const UiController(), context: context);
                 },
               )
             ) ,

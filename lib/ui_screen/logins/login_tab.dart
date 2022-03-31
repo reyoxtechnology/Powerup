@@ -29,7 +29,7 @@ class LoginTab extends StatefulWidget {
 class _LoginTab extends  State<LoginTab>  {
   final _formKey = GlobalKey<FormState>();
 
-  String _username, _password;
+  String _email, _password;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _LoginTab extends  State<LoginTab>  {
         form.save();
 
         final Future<Map<String, dynamic>> successfulMessage =
-            auth.login(_username, _password);
+            auth.login(_email, _password);
 
         successfulMessage.then((response) {
           if (response['status']) {
@@ -77,7 +77,7 @@ class _LoginTab extends  State<LoginTab>  {
                     color: Color(0xff979797),
                   )),
               PowerTextField(
-                onChange: (value) => _username = value,
+                onChange: (value) => _email = value,
               ),
               Container(
                 margin: EdgeInsets.only(top: 21.h, bottom: 9.h),

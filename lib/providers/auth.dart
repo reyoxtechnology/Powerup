@@ -91,9 +91,6 @@ class AuthProvider with ChangeNotifier {
 
       var userData = responseData['user'];
 
-    print('=== userData ===');
-    print(userData);
-
       User authUser = User.fromJson(userData);
 
       UserPreferences().saveUser(authUser);

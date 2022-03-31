@@ -10,9 +10,10 @@ import 'package:powerup/utils/general_functions.dart';
 import 'package:provider/provider.dart';
 
 import '../../services/email_password_reset.dart';
+import '../uicontroller/uicontroller.dart';
 
-class EnterCodeScreen extends StatelessWidget {
-  EnterCodeScreen({Key key}) : super(key: key);
+class VerifyEmailScreen extends StatelessWidget {
+  VerifyEmailScreen({Key key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
   String _token;
@@ -39,7 +40,7 @@ class EnterCodeScreen extends StatelessWidget {
 
     EmailVerifyPasswordReset fPassword = Provider.of<EmailVerifyPasswordReset>(context);
 
-    void _resetPasswordPin(){
+    void _verifyEmail(){
     final form = _formKey.currentState;
     if (form.validate()) {
       form.save();
@@ -47,14 +48,11 @@ class EnterCodeScreen extends StatelessWidget {
 
     _token = txtController1.text + txtController2.text + txtController3.text + txtController4.text;
 
-    Future<Map<String, dynamic>> response =  fPassword.resetPasswordPin(_token);
+    Future<Map<String, dynamic>> response =  fPassword.verifyEmail(_token);
   
     response.then((value) => {
       if(value['status']){
-        Future.delayed(const Duration(milliseconds: 150),
-        () {
-          showDialogBox(context);
-        })
+        goto(screen: const UiController(), context: context)
       } else {
         Flushbar(
           title: "Failed Login",
@@ -107,7 +105,7 @@ class EnterCodeScreen extends StatelessWidget {
                     Container(
                         margin: EdgeInsets.only(top: 29.h, bottom: 15.h),
                         child: PowerText(
-                          text: 'Reset Password',
+                          text: 'Verify Email',
                           fontSize: 24.sp,
                           color: const Color(0xFF1C1C1C),
                           fontFamily: 'DM Sans',
@@ -116,7 +114,7 @@ class EnterCodeScreen extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(bottom: 55.h),
                       child: PowerText(
-                        text: 'A reset code has been sent to your email',
+                        text: 'Please check your email for a 4-digit pin to verify your email.',
                         fontSize: 14.sp,
                         color: const Color(0xFF3D3D3D),
                         fontFamily: 'Sk-Modernist',
@@ -194,10 +192,10 @@ class EnterCodeScreen extends StatelessWidget {
                       margin: EdgeInsets.only(top: 36.h),
                       child: PowerTxtBtn(
                         bgColor: const Color(0xFF082F7C),
-                        text: 'Reset Password',
+                        text: 'Verify Email',
                         onTap: () {
                           unFocusAll();
-                          _resetPasswordPin();
+                          _verifyEmail();
                         },
                       ),
                     )
