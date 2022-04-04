@@ -6,6 +6,8 @@ import 'package:powerup/ui_screen/payment/payment_screen.dart';
 import 'package:powerup/ui_screen/power/powerbottomnavbar.dart';
 import 'package:powerup/ui_screen/settings/settings_screen.dart';
 
+import '../payment/fund-wallet.dart';
+
 class UiController extends StatefulWidget {
   const UiController({Key? key}) : super(key: key);
 
@@ -24,7 +26,8 @@ class _UiControllerState extends State<UiController> {
      const HomeScreen(),
       Container(),
       const BuyUnitScreen(),
-      const PaymentScreen(),
+      const FundWallet(),
+      //const PaymentScreen(),
       const SettingScreen(
           name: 'aikd',
            emailAddress: 'aikdman7@gmail.com', 

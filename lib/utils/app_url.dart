@@ -1,9 +1,10 @@
 class AppUrl {
   static const liveBaseURL = "";
-  static const localBaseURL = "https://0bdf-105-112-59-100.ngrok.io/api/";
+  static const localBaseURL = "https://49a5-105-112-36-177.ngrok.io/api/";
 
 
   static const baseURL = localBaseURL;
+  get baseApi => Uri.parse(baseURL);
   get login => Uri.parse(baseURL + "login");
   get register => Uri.parse(baseURL + "signup");
 

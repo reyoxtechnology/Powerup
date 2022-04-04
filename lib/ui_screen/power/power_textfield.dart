@@ -12,6 +12,7 @@ class PowerTextField extends StatelessWidget {
   final int? maxLength;
   final bool? readOnly;
   final Widget? suffix;
+  final String? error;
   final String? labelTxt;
   PowerTextField(
       {Key? key,
@@ -24,6 +25,7 @@ class PowerTextField extends StatelessWidget {
       this.readOnly,
       this.suffix,
       this.labelTxt,
+      this.error,
       this.onChange})
       : super(key: key);
   final dynamic _outlineInputBorder = OutlineInputBorder(
@@ -53,6 +55,7 @@ class PowerTextField extends StatelessWidget {
           disabledBorder: _outlineInputBorder,
           enabledBorder: _outlineInputBorder,
           labelText: labelTxt,
+          errorText: error,
           fillColor: const Color(0xFFF3F6FA),
           border: _outlineInputBorder,
           counterText: ''

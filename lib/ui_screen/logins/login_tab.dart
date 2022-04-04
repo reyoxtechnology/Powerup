@@ -14,6 +14,7 @@ import 'package:provider/provider.dart';
 
 import '../../models/user.dart';
 import '../../providers/user_provider.dart';
+import '../../providers/wallet_provider.dart';
 import '../../utils/validators.dart';
 import '../../utils/widgets.dart';
 
@@ -47,6 +48,12 @@ class _LoginTab extends  State<LoginTab>  {
           if (response['status']) {
             User user = response['user'];
             Provider.of<UserProvider>(context, listen: false).setUser(user);
+
+            var userData = response['user'];
+            //User authUser = User.fromJson(userData);
+            Provider.of<WalletProvider>(context, listen: false).getUserWallet(userData.token);
+
+
             //Navigator.pushReplacementNamed(context, '/dashboard');
             goto(screen: const UiController(), context: context);
           } else {

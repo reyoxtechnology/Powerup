@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 
 import '../../models/user.dart';
 import '../../providers/user_provider.dart';
+import '../../providers/wallet_provider.dart';
 import '../../utils/validators.dart';
 import '../../utils/widgets.dart';
 
@@ -50,6 +51,11 @@ class _SignUpTab extends  State<SignUpTab>  {
           if (response['status']) {
             User user = response['user'];
             Provider.of<UserProvider>(context, listen: false).setUser(user);
+
+            var userData = response['user'];
+            User authUser = User.fromJson(userData);
+            Provider.of<WalletProvider>(context, listen: false).getUserWallet(authUser.token);
+
             //Navigator.pushReplacementNamed(context, '/dashboard');
             goto(screen: VerifyEmailScreen(), context: context);
           } else {

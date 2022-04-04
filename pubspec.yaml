@@ -32,6 +32,7 @@ dependencies:
   flushbar: ^1.10.4
   flutter:
     sdk: flutter
+  flutter_paystack: ^1.0.5+1
   http: ^0.13.4
   mvc_pattern: ^8.8.2
   provider: ^6.0.2
@@ -40,7 +41,7 @@ dependencies:
 dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_screenutil: ^5.0.0+2
-  flutter_svg: ^0.23.0+1
+  flutter_svg: ^1.0.3
   flutter_test:
     sdk: flutter
   simple_ripple_animation: ^0.0.3
